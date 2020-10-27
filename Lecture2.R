@@ -35,4 +35,4 @@ PV <- function(FV, r = 0.1, n, round = FALSE){
 
 PV(100, n = 7)
 PV(100, n = 7,round=TRUE)
-PV(100, n = 10)
+PV(100, n = 10,r=0.4)
