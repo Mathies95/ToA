@@ -1,0 +1,11 @@
+unnamed-chunk-2	library
+unnamed-chunk-3	c
+unnamed-chunk-4	c	matrix	T
+unnamed-chunk-5	[<-	c	cat	for	list	nrow	return	setup_costs	startup_costs	which.min
+unnamed-chunk-6	$	$<-	apply	greedy	matrix	min	nrow	rbind	rep	return	sum	T
+unnamed-chunk-7	better	setup_costs	startup_costs
+unnamed-chunk-8	better	c	setup_costs
+unnamed-chunk-9	$	aes	arrow	as_tbl_graph	circle	geom_edge_link	geom_node_point	geom_node_text	ggraph	library	name	res	theme_graph	tibble	unit
+unnamed-chunk-10	$	::
+unnamed-chunk-11	$	%>%	::	date	list	loadedversion	package	select	session	source
+unnamed-chunk-12	setup_costs	sum
