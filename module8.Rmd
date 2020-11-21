@@ -469,6 +469,63 @@ profit %>%
 
 ```
 
+```{r}
+library(tidyverse)
+fisheries <- read_csv("https://raw.githubusercontent.com/rstudio-education/datascience-box/master/course-materials/application-exercises/ae-05-fisheries-datajoins/data/fisheries.csv")
+fisheries
+
+continents <- read_csv("https://raw.githubusercontent.com/rstudio-education/datascience-box/master/course-materials/application-exercises/ae-05-fisheries-datajoins/data/continents.csv")
+continents
+
+#1
+fisheries<-fisheries%>%
+  left_join(continents)
+
+fisheries%>%
+  anti_join(continents)
+
+fisheries%>%
+  filter(is.na(continent))
+#2
+fisheries<-fisheries%>%
+  filter(total>100000)
+#3
+fisheries%>%
+  filter(is.na(continent))
+
+fisheries<-fisheries%>%
+  mutate(continent=case_when(
+    country=="Democratic Republic of the Congo" ~"Africa",
+    country=="Hong Kong"~"asia",
+    country=="Myanmar"~"asia",
+    TRUE~continent
+  ))
+#4
+fisheries<-fisheries%>%
+  mutate(aquaculture_perc = aquaculture / total)
+#The percentage of fish harvest done using aquaculture.
+
+#5 og 6
+fisheries_summary<-fisheries%>%
+  group_by(continent)%>%
+  summarise(mean_ap=mean(aquaculture_perc),
+            min_ap=min(aquaculture_perc),
+            max_ap=max(aquaculture_perc))
+    
+#7
+fisheries_summary%>%
+  arrange(desc(mean_ap))
+
+#8
+fisheries_summary%>%
+ggplot(aes(x=reorder(continent,mean_ap),mean_ap))+
+  geom_col()
+
+fisheries%>%
+  filter(aquaculture<1000000)%>%
+  ggplot(aes(aquaculture,total,fill=continent,color=continent,size=aquaculture_perc))+
+  geom_point()
+```
 
 
 
